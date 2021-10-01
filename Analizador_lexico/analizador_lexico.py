@@ -80,7 +80,7 @@ def t_doble_precision(t):
     return t
 # Define a rule so we can track line numbers
 def t_newline(t):
-    r'\n+'
+    r'\n+|\s|\s+'
     t.lexer.lineno += len(t.value)
 # A string containing ignored characters (spaces and tabs)
     t_ignore = ' \t'
