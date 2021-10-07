@@ -1,0 +1,83 @@
+PROGRAM ::= [BLOCK]+
+
+BLOCK ::= TI ID PAR_A PAR_B LLAV_A STATE LLAV_B
+		BLOCK ::= BLOCK'
+		BLOCK' ::= ''
+		
+TI ::= int
+		TI ::= float
+		TI ::= double
+		TI ::= str
+		
+STATE ::= EXPR
+		STATE ::= FIN
+		STATE ::= ''
+		
+EXPR ::= TI ID EXPR'
+		EXPR ::= ID EXPR'		
+		EXPR ::= ELSX : EXPR
+		EXPR ::= PRINTX : EXPR'
+		EXPR ::= ENTER
+		EXPR' ::= ID EXPR'
+		EXPR' ::= NUM
+		EXPR' ::= FIN
+		EXPR' ::= ASIGN EXPR'
+		EXPR' ::= OP_PLUS ID EXPR'
+		EXPR' ::= OP_MINUS ID EXPR'
+		EXPR' ::= OP_DIV ID EXPR'
+		EXPR' ::= OP_PRO ID EXPR'
+		EXPR ::= YESX ( COMP ) : EXPR
+		EXPR ::= WHILX ( COMP ) : EXPR
+		EXPR' ::= ''
+		EXPR ::= ( EXPR )
+		
+COMP ::= ID COMP'
+		COMP' ::= MAYOR ID EXPR'
+		COMP' ::= MENOR ID EXPR'
+		COMP' ::= MAYOR_IGUAL ID EXPR'
+		COMP' ::= MENOR_IGUAL ID EXPR'
+		COMP' ::= DIFERENTE ID EXPR'
+		COMP' ::= IGUAL ID EXPR'
+
+OP_PLUS ::= +
+
+OP_MINUS ::= -
+
+OP_DIV ::=  /
+
+OP_PRO::= *
+
+MAYOR ::= >
+
+MENOR ::= <
+
+MAYOR_IGUAL ::= >=
+
+MENOR_IGUAL ::= <=
+
+DIFERENTE ::= !=
+
+IGUAL ::= == 
+
+ID ::= id
+		ID ::= headx
+		
+ASIGN ::= =
+
+FIN ::= finishx
+
+NUM ::= 4
+
+PAR_A ::= (
+
+PAR_B ::= )
+
+LLAV_A ::= {
+
+LLAV_B ::= }
+
+YESX ::= yesx
+
+ELSX ::= elsx
+
+PRINTX ::= printx
