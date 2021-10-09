@@ -1,0 +1,40 @@
+Gramática Lenguaje Sciencx - BNF
+
+<PRO_SCIENCX> ::= <TYPE_ID> “headx” “(“ “)” “{“ <STATEMENT> “finishx”  “}”
+
+<STATEMENT> ::= <EXPR>
+		 | “yesx” “(“ <COMP> “)” “:” <STATEMENT> “elsx” “:” <STATEMENT>
+		 | “whilx” “(“ <COMP> “)” “:” <STATEMENT>
+		 | “printx” “:” <EXPR>
+		 | “entrx” “:” <EXPR>
+		 | <VAR_DECLARATION>
+		 | Ɛ
+
+<VAR_DECLARATION> ::= <TYPE_ID> <ID>
+			| <TYPE_ID> <ID> “=” <EXPR>
+
+<COMP> ::= <EXPR> “==” <EXPR>
+		| <EXPR> “>=” <EXPR>
+		| <EXPR> “>” <EXPR>
+		| <EXPR> “<=” <EXPR>
+		| <EXPR> “<” <EXPR>
+
+<EXPR> ::= <EXPR> “+” <EXPR>
+		| <EXPR> “-” <EXPR>
+		| <EXPR> “*” <EXPR>
+| <EXPR> “/” <EXPR>
+		| <EXPR> “=” <EXPR>
+		| <ID>
+		| <NUM>
+		| <TEXT>
+		| Ɛ
+
+<TYPE_ID> ::= “int”
+		| “float”
+		| “str”
+
+<ID> ::= “identifier”
+
+<NUM> ::= “numero”
+
+<TEXT> ::= “texto”
